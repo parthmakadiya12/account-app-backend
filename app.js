@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import express from "express";
+import cors from "cors";
 
 import auth from "./routes/auth";
 import { connect } from "./db/db";
@@ -11,6 +12,7 @@ const mongoDbUrl = process.env.MONGODB_URI || dev_db_url;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({ origin: true, credentials: true }));
 
 app.use(`/`, auth);
 
