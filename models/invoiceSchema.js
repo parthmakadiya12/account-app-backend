@@ -4,7 +4,8 @@ const InvoiceSchema = mongoose.Schema(
   {
     username: { type: String, unique: false, required: true },
     type: { type: String, unique: false, required: true },
-    amount: { type: String, unique: false, required: true }
+    amount: { type: Number, unique: false, required: true },
+    note: { type: String, unique: false, required: true },
   },
   {
     timestamps: true,

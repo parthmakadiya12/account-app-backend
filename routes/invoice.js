@@ -7,6 +7,7 @@ router.post("/add", (req, res, next) => {
     username: req.user.username,
     type: req.body.type,
     amount: req.body.amount,
+    note: req.body.note,
   });
 
   invoice
@@ -27,10 +28,42 @@ router.post("/add", (req, res, next) => {
 });
 
 router.get("/", (req, res, next) => {
-//TODO: add pagination here:
+  //TODO: add pagination here:
   try {
-    InvoiceSchema.find({}, function (err, invoices) {
+    InvoiceSchema.find({ username: req.user.username }, function (
+      err,
+      invoices
+    ) {
       res.status(200).send({ invoices });
+    });
+  } catch (e) {
+    console.log("error while fetching invoices", e);
+    res.status(500).send({
+      status: "Error while fetching invoices",
+    });
+  }
+});
+
+router.get("/total/count", (req, res, next) => {
+  //TODO: add pagination here:
+  try {
+    let credit = 0,
+      debit = 0;
+    InvoiceSchema.find({ username: req.user.username }, function (
+      err,
+      invoices
+    ) {
+      invoices.map((i) => {
+        if (i.type === "credit") {
+          credit += i.amount;
+        } else if (i.type === "debit") {
+          debit += i.amount;
+        }
+      });
+      res.status(200).send({
+        credit,
+        debit,
+      });
     });
   } catch (e) {
     console.log("error while fetching invoices");
