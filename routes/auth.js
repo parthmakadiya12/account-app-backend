@@ -12,10 +12,10 @@ const generateAuthToken = function (_id, username) {
 };
 
 const verifyAuthToken = function (token) {
-  try{
+  try {
     const isValid = jwt.verify(token, config.myprivatekey);
-    return true;  
-  }catch(e){
+    return true;
+  } catch (e) {
     return false;
   }
 };
@@ -50,7 +50,7 @@ router.post("/login", (req, res, next) => {
             },
           });
         } else {
-          console.log("login Failed for : " + username);
+          console.log("login Failed for : " + username + "error is " + err);
           res.status(401).send({
             message: "Password is wrong for given user.Please check again.",
           });
@@ -82,7 +82,7 @@ router.post("/signup", (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === "MongoError" && err.code === 11000) {
-        console.log("Signup Error for : " + req.body.username+err);
+        console.log("Signup Error for : " + req.body.username + err);
         return res.status(422).send({
           succes: false,
           message: "User already exist! Check Username and Email",

@@ -17,10 +17,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: true, credentials: true }));
 
-app.use('/', express.static(path.join(__dirname, 'build')))
+app.use('/', express.static(__dirname + '/build'));
 
-app.use(`/`, auth);
-app.use(`/invoices`, authMiddleware, invoice);
+app.use(`/api/auth`, auth);
+app.use(`/api/invoices`, authMiddleware, invoice);
+
+app.use('/*', express.static(path.join(__dirname, '/build')));
 
 const server = app.listen(PORT);
 connect(mongoDbUrl, (err) => {
