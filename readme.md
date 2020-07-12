@@ -9,7 +9,7 @@
 - create a database with name `accountApp` or provide it in environment variable in `MONGODB_URI`.
 
 
-#### Run with docker/docker-compose
+#### Run with docker/docker-compose (both frontend and backend)
 
 - clone the project
 - run `docker-compose up`

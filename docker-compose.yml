@@ -1,7 +1,7 @@
 version: "3"
 services:
   app:
-    container_name: account-app-backend
+    container_name: account-app
     restart: always
     build: ./
     ports:
