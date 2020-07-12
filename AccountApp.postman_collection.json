@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "94f53b47-ee8d-4d23-b637-c5919c885b07",
+		"name": "AccountApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"A\",\n\t\"surname\": \"A\",\n\t\"email\":\"A\",\n\t\"securityQue\":\"MAIDED NAME\",\n\t\"securityAns\":\"A\",\n\t\"username\":\"A\",\n\t\"password\":\"A\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "A",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Invoice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA4ZGMyNTNiNzcxODc3OTA1MzEyYzQiLCJ1c2VybmFtZSI6IkEiLCJpYXQiOjE1OTQ0MjQwMjB9._IkyQdAxGcRV-bG1zmHiVE2BOj65BeqSPaE3AxeCnAs",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"type\":\"credit\",\n\t\"amount\": 2320,\n\t\"note\":\"Lend it to XX\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/invoices/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"invoices",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Invoices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZjA4ZGMyNTNiNzcxODc3OTA1MzEyYzQiLCJ1c2VybmFtZSI6IkEiLCJpYXQiOjE1OTQ0MjQwMjB9._IkyQdAxGcRV-bG1zmHiVE2BOj65BeqSPaE3AxeCnAs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/invoices/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"invoices",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

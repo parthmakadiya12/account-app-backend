@@ -1,6 +1,6 @@
 import express from "express";
 import UserSchema from "../models/userSchema";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import get from "lodash/get";
 import * as config from "../config/config";
@@ -82,7 +82,7 @@ router.post("/signup", (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === "MongoError" && err.code === 11000) {
-        console.log("Signup Error for : " + req.body.username);
+        console.log("Signup Error for : " + req.body.username+err);
         return res.status(422).send({
           succes: false,
           message: "User already exist! Check Username and Email",
