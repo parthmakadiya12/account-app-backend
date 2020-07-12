@@ -13,6 +13,6 @@
 
 - clone the project
 - run `docker-compose up`
-- Run the frontend app from the frontend repository (read readme of that repo)
-- You are live on `http://localhost:8080` (need postman to work with it. Import `AccountApp.postman_collection.json` in postman)
-- If you don't care about what's inside then just run the frontend project and that's it.
+- It will also run the frontend app so you dont need to worry about that. (hold tight and pretend it's a plan)
+- You are live on `http://localhost:8080` (If you need postman then Import `AccountApp.postman_collection.json` in postman)
+- You are also running frontend app at [http://localhost:8080](http://localhost:8080). (Check code for that also. `https://github.com/parthmakadiya12/account-app-test-frontend`)
